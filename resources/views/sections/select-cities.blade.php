@@ -255,7 +255,7 @@
 									<div class="col-12 col-sm-6 col-lg-3">
 										<div class="__item">
 											<figure class="__image">
-												<img class="lazy" src="img/blank.gif" data-src="{{asset('assets/img/cities/bwp.webp')}}" alt="demo" />
+												<img class="lazy" src="img/blank.gif" data-src="{{asset('assets/img/cities/lahore.webp')}}" alt="demo" />
 											</figure>
 
 											<div class="__content">
@@ -271,7 +271,7 @@
 									<div class="col-12 col-sm-6 col-lg-3">
 										<div class="__item">
 											<figure class="__image">
-												<img class="lazy" src="img/blank.gif" data-src="{{asset('assets/img/cities/bwp.webp')}}" alt="demo" />
+												<img class="lazy" src="img/blank.gif" data-src="{{asset('assets/img/cities/karachi.webp')}}" alt="demo" />
 											</figure>
 
 											<div class="__content">
