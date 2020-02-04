@@ -1,120 +1,7 @@
 @extends('master')
 @section('select-cities')
-  <!-- start start screen -->
-  <div id="start-screen" class="start-screen start-screen--style-2">
-	<div id="start-screen__bg" class="start-screen__bg" style="background-image: url('{{asset('assets/img/home_img/home_3_bg.webp')}}');background-position: 70% 0;"></div>
 
-	<div id="start-screen__content-container" class="start-screen__content-container">
-		<div class="start-screen__content__item is-active  align-items-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-6">
-						<h2 class="__title"> Sub Laylo</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 <!-- end start screen -->
-					<!-- start section -->
-					<section class="section">
-						<div class="container-fluid">
-							<!-- start product promo -->
-							<div class="product-promo product-promo--style-2">
-								<div class="__inner">
-									<div class="row no-gutters  js-isotope"
-										data-isotope-options='{
-											"itemSelector": ".js-isotope__item",
-											"transitionDuration": "0.8s",
-											"percentPosition": "true",
-											"masonry": { "columnWidth": ".js-isotope__sizer" }
-										}'>
-										
-										<div class="col-12 col-sm-6 col-md-4  js-isotope__sizer"></div>
-	
-										<!-- start item -->
-										<div class="col-12 col-sm-6 col-md-4  js-isotope__item">
-											<div class="__item" data-y="2">
-												<figure class="__image">
-													<img src="{{asset('assets/img/product-preview_img/vegetables.webp')}}" alt="vegetables" />
-												</figure>
-	
-												<div class="__content">
-													<h3 class="__title">Vegetables <br><span>Fresh</span></h3>
-												</div>
-	
-												<a class="__link" href="#"></a>
-											</div>
-										</div>
-										<!-- end item -->
-	
-										<!-- start item -->
-										<div class="col-12 col-sm-6 col-md-4  js-isotope__item">
-											<div class="__item">
-												<figure class="__image">
-													<img src="{{asset('assets/img/product-preview_img/fruits.webp')}}" alt="demo" />
-												</figure>
-	
-												<div class="__content">
-													<h3 class="__title ">Fruits <br><span>Fresh</span></h3>
-												</div>
-	
-												<a class="__link" href="#"></a>
-											</div>
-										</div>
-										<!-- end item -->
-	
-										<!-- start item -->
-										<div class="col-12 col-sm-6 col-md-4  js-isotope__item">
-											<div class="__item">
-												<figure class="__image">
-													<img src="{{asset('assets/img/product-preview_img/cosmetics.webp')}}" alt="demo" />
-												</figure>
-	
-												<div class="__content">
-													<h3 class="__title">Cosmetics <br><span>Branded</span></h3>
-												</div>
-	
-												<a class="__link" href="#"></a>
-											</div>
-										</div>
-										<!-- end item -->
-	
-										<!-- start item -->
-										<div class="col-12 col-sm-6 col-md-4  js-isotope__item">
-											<div class="__item">
-												<div class="__content">
-													<h2 class="__title">Your DoorStep <br><span style="color:darkgreen">Just <br>One Click</span></h2>
-												</div>
-	
-												<a class="__link" href="#"></a>
-											</div>
-										</div>
-										<!-- end item -->
-	
-										<!-- start item -->
-										<div class="col-12 col-sm-6 col-md-4  js-isotope__item">
-											<div class="__item">
-												<figure class="__image">
-													<img src="{{asset('assets/img/product-preview_img/oil.webp')}}" alt="demo" />
-												</figure>
-	
-												<div class="__content">
-													<h3 class="__title">Kitchen Products <br><span>All types of items you Need</span></h3>
-												</div>
-	
-												<a class="__link" href="#"></a>
-											</div>
-										</div>
-										<!-- end item -->
-									</div>
-								</div>
-							</div>
-							<!-- end product promo -->
-						</div>
-					</section>
-
 
 									<!-- start section -->
 				<section class="section section--review w3-sand jarallax">
@@ -283,7 +170,7 @@
 									</div>
 									<!-- end item -->
 								</div>
-								
+
 							</div>
 						</div>
 						<!-- end product preview -->
@@ -291,5 +178,5 @@
 				</section>
 				<!-- end section -->
 
-				
+
 @endsection
