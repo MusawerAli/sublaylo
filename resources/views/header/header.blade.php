@@ -1,7 +1,7 @@
 
 					<!-- start header -->
 					
-			<header id="top-bar" class="top-bar top-bar--style-3" style="background-image: url({{asset('assets/img/home_img/home_3_bg.jpg')}})">
+			<header id="top-bar" class="w3-top" style="background-image: url({{asset('assets/img/home_img/home_3_bg.jpg')}})">
 				<div class="top-bar__bg" style="background-size: cover;background-repeat: no-repeat;background-position: 40% bottom;"></div>
 
 				<div class="container position-relative">

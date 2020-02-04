@@ -36,13 +36,41 @@
                         <h2>Sign <span>in</span></h2>
 
                         <!-- start form -->
-                        <form class="auth-form" action="#">
+                        
+                        {{-- Errors Display  start--}}
+                        
+                        @if ($message = Session::get('error'))
+                        <div class="w3-panel w3-padding w3-red w3-display-container">
+                            <span onclick="this.parentElement.style.display='none'"
+                            class="w3-button w3-large w3-display-topright">&times;</span>
+                            {{$message}}
+                          </div>
+                        @endif
+
+                            @if (count($errors) > 0 )
+                            <div class="w3-panel w3-display-container w3-padding w3-yellow" >
+                            <span onclick="this.parentElement.style.display='none'"
+                                class="w3-button w3-display-topright">&times;</span>
+
+                        <ul>
+                            
+                            @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div> 
+                        @endif
+
+                         {{-- Errors Display  end--}}
+                      
+                    <form class="auth-form" method="POST"  action="{{route('login')}}">
+                        @csrf
                             <div class="input-wrp">
-                                <input class="textfield" type="text" placeholder="Username or email address *" />
+                                <input class="textfield" name="email" type="text" placeholder="Contact NO# or Email address *" />
                             </div>
 
                             <div class="input-wrp">
-                                <input class="textfield" type="text" placeholder="Password" />
+                                <input class="textfield" name="password" type="password" placeholder="Password" />
                             </div>
 
                             <div class="row align-items-center justify-content-between">

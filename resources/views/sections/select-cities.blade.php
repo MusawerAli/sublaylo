@@ -216,7 +216,7 @@
 					<br>
 					<div class="container-fluid px-md-0">
 						<!-- start product preview -->
-						<div class="product-preview product-preview--style-2">
+						<div class="product-preview product-preview--style-1">
 							<div class="__inner">
 								<div class="row">
 									<!-- start item -->

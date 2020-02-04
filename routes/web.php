@@ -16,9 +16,18 @@ Route::get('/', function () {
 });
 
 Route::get('/find-city/{city?}',function($city){
-    return $city;
+    return view('city-detail',['city'=>$city]);
 })->name('find-city');
 
 Route::get('accounts',function(){
     return view('accounts');
 });
+
+
+
+// Route of Website
+
+Route::post('/Auth/login','AuthController@index')->name('login');
+Route::get('/dashboard/{UserName}',function($UserName){
+    return view('user.user-dashboard');
+})->name('dashboard/{UserName}');

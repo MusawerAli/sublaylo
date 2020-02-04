@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.min.css')}}" type="text/css">
 
     @yield('select-cities')
-
+    @yield('city-detail')
 
 
     <!-- Load lazyLoad scripts
