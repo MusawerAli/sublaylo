@@ -15,7 +15,7 @@ class AddImageInUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             Schema::table('users', function (Blueprint $table) {
-                $table->string('image',70)->nullable();
+                $table->string('image',70)->default('default-avatar.png');
                
             });
         });

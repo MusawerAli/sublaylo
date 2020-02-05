@@ -28,6 +28,14 @@ Route::get('accounts',function(){
 // Route of Website
 
 Route::post('/Auth/login','AuthController@index')->name('login');
+Route::get('/Auth/logout','AuthController@logout')->name('logout');
 Route::get('/dashboard/{UserName}',function($UserName){
     return view('user.user-dashboard');
 })->name('dashboard/{UserName}');
+
+
+
+//Ajax Call Route
+
+Route::post('/Check/Email','AuthController@CheckEmail')->name('Check.Email');
+Route::post('/SignUp','AuthController@SignUp')->name('SignUp');

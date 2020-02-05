@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Auth;
+use DB;
+use Hash;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -101,5 +104,42 @@ class AuthController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function logout(){
+        Auth::logout();
+     return redirect('/');
+    }
+
+
+    public function CheckEmail(Request $request){
+        if($email = $request->get('email')){
+            $data = DB::table('users')
+                        ->where('email',$email)
+                        ->count();
+
+            if($data > 0){
+                return 1;
+            }else{
+                echo 0;
+            }
+        }
+    }
+
+    //User SignUp
+    public function SignUp(Request $request){
+
+        $data = $request->only(['name','email','contact','confirm_password','_token']);
+       
+        $user = new User([
+            'name'  =>  $data['name'],
+            'email' =>  $data['email'],
+            'contact'   =>  $data['contact'],
+            'password'  =>  Hash::make($data['confirm_password']),
+            'remember_token'    =>  $data['_token']
+        ]);
+        $user->save();
+        
+        
     }
 }

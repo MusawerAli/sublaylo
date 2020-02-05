@@ -99,9 +99,9 @@
 					</div>
 				</div>
 
-				<div class="map-container">
+				{{-- <div class="map-container">
 					<!-- this is demo key "AIzaSyBXQROV5YMCERGIIuwxrmaZbBl_Wm4Dy5U" -->
 					<div class="g_map" data-api-key="AIzaSyBXQROV5YMCERGIIuwxrmaZbBl_Wm4Dy5U" data-longitude="44.958309" data-latitude="34.109925" data-marker="img/marker.png" style="min-height: 255px"></div>
-				</div>
+				</div> --}}
 			</footer>
 			<!-- end footer -->

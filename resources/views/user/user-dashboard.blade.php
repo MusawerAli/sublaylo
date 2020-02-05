@@ -1,3 +1,4 @@
 @if (Auth::user())
-    {{Auth::user()->all}}
+    {{Auth::user()}}
 @endif
+

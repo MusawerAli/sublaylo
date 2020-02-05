@@ -1,8 +1,8 @@
 
 					<!-- start header -->
 					
-			<header id="top-bar" class="w3-top" style="background-image: url({{asset('assets/img/home_img/home_3_bg.jpg')}})">
-				<div class="top-bar__bg" style="background-size: cover;background-repeat: no-repeat;background-position: 40% bottom;"></div>
+			<header id="top-bar" class="top-bar top-bar--style-3" style="background-image: url({{asset('assets/img/home_img/home_3_bg.jpg')}})">
+				<div class="top-bar__bg" style=" background-size: cover;background-repeat: no-repeat;background-position: 40% bottom;background-image: url({{asset('assets/img/top_bar_bg-1.jpg')}})"></div>
 
 				<div class="container position-relative">
 					<div class="row align-items-center no-gutters">
@@ -58,23 +58,36 @@
 											</ul>
 										</li>
 
-										<li>
+										@if (!Auth::user())
+											<li>
 											<a href="/accounts"><span class="fa fa-lock"></span> Accounts</a>
 										</li>
-
-										<li>
-											<a href="contacts.html">Contacts</a>
-										</li>
-
-										
 
 										<li class="li-btn">
 											<a href="" class="custom-btn custom-btn--style-4 w3-padding w3-right">Sign-in</a>
 											<a href="" class="custom-btn custom-btn--style-4 w3-padding w3-green  w3-hover-green">Register</a>
 										</li>
-										<li class="li-btn">
-											
+
+										@else
+										<li class="active has-submenu">
+											<img  src="{{asset('assets/img/')}}/{{Auth::user()->image}}" height="30px" width="30px" alt="profile">
+											Profile
+											<ul class="submenu">
+												<li class="fa fa-first-order"> <a href="index.html">Orders</a></li>
+												<li class="fa fa-gear"> <a href="index_2.html"> Setting</a></li>
+												<li class="active"><a href="index_3.html">Home 3</a></li>
+												<li class="fa fa-sign-out"> <a href="{{route('logout')}}">Logout</a></li>
+											</ul>
 										</li>
+
+										@endif
+
+										
+
+
+										
+
+										
 									</ul>
 								</nav>
 							</div>
