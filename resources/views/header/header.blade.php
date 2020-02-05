@@ -1,11 +1,11 @@
 
 					<!-- start header -->
-					
+
 			<header id="top-bar" class="top-bar top-bar--style-3" style="background-image: url({{asset('assets/img/home_img/home_3_bg.jpg')}})">
 				<div class="top-bar__bg" style="background-size: cover;background-repeat: no-repeat;background-position: 40% bottom;"></div>
 
 				<div class="container position-relative">
-					<div class="row align-items-center no-gutters">
+					<div class="row">
 
 						<a class="top-bar__logo site-logo" href="index.html">
 							<img class="img-fluid" src="img/site_logo.png" alt="demo" />
@@ -64,18 +64,20 @@
 
 										<li>
 											<a href="contacts.html">Contacts</a>
+                                        </li>
+                                        <li>
+											<a href="#" class="w3-button w3-gray" style="width:100%"><i class="w3-margin-left fa fa-search"></i> Button</a>
 										</li>
-
-										
 
 										<li class="li-btn">
 											<a href="" class="custom-btn custom-btn--style-4 w3-padding w3-right">Sign-in</a>
-											<a href="" class="custom-btn custom-btn--style-4 w3-padding w3-green  w3-hover-green">Register</a>
+
 										</li>
 										<li class="li-btn">
-											
+                                            <a href="" class="custom-btn custom-btn--style-4 w3-padding w3-left w3-green  w3-hover-green">Search</a>
 										</li>
-									</ul>
+                                    </ul>
+
 								</nav>
 							</div>
 						</div>
@@ -84,5 +86,5 @@
 				</div>
 			</header>
 
-						
+
 			<!-- end header -->
