@@ -4,11 +4,13 @@
 {{-- <meta http-equiv="content-type" content="text/html;charset=utf-8" /> --}}
 <head>
 @include('header.head')
+@stack('user-head')
 	</head>
 
 	<body>
         <div id="app">
             @include('header.header')
+           
           
 <!-- start main -->
         <main role="main">
@@ -68,6 +70,7 @@
         </main>
         <!-- end main -->
             @include('header.footer')
+            @stack('user-footer')
         </div>
 
     @include('header.script')

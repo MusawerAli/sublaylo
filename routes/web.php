@@ -34,8 +34,29 @@ Route::get('/dashboard/{UserName}',function($UserName){
 })->name('dashboard/{UserName}');
 
 
+Route::get('/shopkeeper-dash',function(){
+    
+    return view('shopkeeper.shop-dash');
+})->name('/s_dashboard');
+
+Route::get('/admin-dash',function(){
+    return view('admin.admin-dash');
+});
 
 //Ajax Call Route
 
 Route::post('/Check/Email','AuthController@CheckEmail')->name('Check.Email');
 Route::post('/SignUp','AuthController@SignUp')->name('SignUp');
+Route::get('/home/{name?}',function(){
+    return view('user.user-dashboard');
+})->middleware('CheckRole');
+
+
+
+            //*******Admin site Routes******//
+
+
+
+
+
+

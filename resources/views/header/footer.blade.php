@@ -1,4 +1,5 @@
-
+@push('user-footer')
+	
 			<!-- start footer -->
 			<footer id="footer" class="footer footer--style-3">
 				<div class="container">
@@ -105,3 +106,9 @@
 				</div> --}}
 			</footer>
 			<!-- end footer -->
+@endpush
+
+
+@push('admin-footer')
+	
+@endpush

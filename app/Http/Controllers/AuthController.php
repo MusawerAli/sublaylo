@@ -8,6 +8,7 @@ use Auth;
 use DB;
 use Hash;
 use App\User;
+use Session;
 
 class AuthController extends Controller
 {
@@ -30,8 +31,15 @@ class AuthController extends Controller
 
         if(Auth::attempt($user_data))
         {
-         return redirect('dashboard/'.Auth::user()->name);
-         
+           $role = Auth::user()->role;
+            if($role == 'user'){
+                return redirect('dashboard/'.Auth::user()->name);
+            }elseif($role == 'shopkeeper'){
+                echo "shopekeeper";
+            }else{
+                return redirect('admin-dash');
+            }
+      
         }
         else
         {
@@ -136,9 +144,20 @@ class AuthController extends Controller
             'email' =>  $data['email'],
             'contact'   =>  $data['contact'],
             'password'  =>  Hash::make($data['confirm_password']),
-            'remember_token'    =>  $data['_token']
+            'remember_token'    =>  $data['_token'],
         ]);
-        $user->save();
+        
+
+       if($user->save()){
+        $user = DB::table('users')->where('id',$user->id)->first();
+         //session::put('User', $user);
+         return back()->with('success', 'Account Created Successfully');
+        
+       }
+         //$this->user =  Auth::user();
+      
+        
+    //   echo  $lastId = DB::table('users')->insertGetId(['email' => $data['email']]);
         
         
     }

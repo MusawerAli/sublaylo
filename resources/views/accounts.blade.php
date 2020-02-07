@@ -51,7 +51,7 @@
                             {{$message}}
                           </div>
                         @endif
-
+                       
                             @if (count($errors) > 0 )
                             <div class="w3-panel w3-display-container w3-padding w3-yellow" >
                             <span onclick="this.parentElement.style.display='none'"
@@ -108,7 +108,13 @@
 
                     <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-lg-1 offset-xl-2">
                         <h2>new Account</h2>
-
+                        @if ($message = Session::get('success'))
+                        <div class="w3-panel w3-padding w3-green w3-display-container">
+                            <span onclick="this.parentElement.style.display='none'"
+                            class="w3-button w3-large w3-display-topright">&times;</span>
+                            {{$message}}
+                          </div>
+                        @endif
                         <!-- start form -->
                         <form class="auth-form" id="sign-up" method="POST" action="SignUp">
                             @csrf
