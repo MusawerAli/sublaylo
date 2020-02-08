@@ -63,27 +63,15 @@
 											<a href="/accounts"><span class="fa fa-lock"></span> Accounts</a>
 										</li>
 
-<<<<<<< HEAD
-										<li>
-											<a href="contacts.html">Contacts</a>
-                                        </li>
-                                        <li>
-											<a href="#" class="w3-button w3-gray" style="width:100%"><i class="w3-margin-left fa fa-search"></i> Button</a>
-										</li>
-
-=======
->>>>>>> 1bcc454a65137670b9176aaddffc65618964b654
 										<li class="li-btn">
 											<a href="" class="custom-btn custom-btn--style-4 w3-padding w3-right">Sign-in</a>
 
 										</li>
-<<<<<<< HEAD
 										<li class="li-btn">
                                             <a href="" class="custom-btn custom-btn--style-4 w3-padding w3-left w3-green  w3-hover-green">Search</a>
 										</li>
                                     </ul>
 
-=======
 
 										@else
 										<li class="active has-submenu">
@@ -106,7 +94,6 @@
 
 										
 									</ul>
->>>>>>> 1bcc454a65137670b9176aaddffc65618964b654
 								</nav>
 							</div>
 						</div>

@@ -41,7 +41,7 @@ Route::get('/shopkeeper-dash',function(){
 
 Route::get('/admin-dash',function(){
     return view('admin.admin-dash');
-});
+})->middleware('CheckRole');
 
 //Ajax Call Route
 
@@ -58,5 +58,8 @@ Route::get('/home/{name?}',function(){
 
 
 
+Route::get('/add-shops',function(){
+    return view('admin.pages.add-shops');
+})->name('AddShops');
 
-
+Route::post('/add-business','ShopsController@add_business')->name('AddBusiness');
