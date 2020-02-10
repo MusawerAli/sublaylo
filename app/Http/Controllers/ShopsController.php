@@ -9,23 +9,41 @@ use Hash;
  use App\BusinessDetail;
  use Auth;
  use DB;
+ use DataTables;
 class ShopsController extends Controller
 {
+
+    
     protected $user,$BusinessDetail;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        
-    }
 
     public function shops_detail(){
-
-        // User::with('info')->get();
-        // return view('admin.pages.add-shops');
+        
+        $students = DB::table('users')
+                    ->join('BusinessDetails','users.id','=','BusinessDetails.user_id')
+                    ->select('users.id','email','name','contact','status','city','BusinessName','BusinessContact','BusinessType','BusinessAddress','BusinessDetails.created_at')
+                    ->get();
+       // $students = User::where('role', 'user')->get();
+          return DataTables::of($students)
+               ->addColumn('action', function($student){
+                   return '
+                   
+                   <div class="dropdown">
+                   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                     Action
+                   </button>
+                   <div class="dropdown-menu">
+                     <a class="dropdown-item status" secure="'.$student->name.'" href="#" value="blocked" id="'.$student->id.'">Block</a>
+                     <a class="dropdown-item status" secure="'.$student->name.'" value="active" id="'.$student->id.'">Activate</a>
+                   </div>
+                 </div>';
+               })
+               ->make(true);
+       // dd($user->toArray());
         
     }
 
@@ -82,6 +100,7 @@ class ShopsController extends Controller
                     'country'   =>  $data['country'],
                     'password'  =>  Hash::make($data['password']),
                     'remember_token'    =>  $data['_token'],
+                    'role'              =>  'shopkeeper'
                 ]);
                 
                     $BusinessDetail = $this->BusinessDetail->create([
@@ -117,69 +136,20 @@ class ShopsController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+ 
+    public function ChangeStatus(Request $request){
+        $data = $request->only(['id','value']);
+       $user =  User::find($data['id']);
+       $user->status = $data['value'];
+       
+       if($user->save()){
+           echo $request->name." ".$data['value']." Successfully.";
+       }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+       
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function shopper(){
+        echo 'dssds';
     }
 }

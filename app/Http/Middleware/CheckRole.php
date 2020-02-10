@@ -17,10 +17,12 @@ class CheckRole
     {
         
       
-        if(Auth::user()->role=='admin'){
+        if(Auth::user() && Auth::user()->role=='shopper'){
      
-       //return redirect()->to('admin-dash');
+      // return route('admin-dash');
        return $next($request);
+    }elseif(Auth::user()->role=='user'){
+        return route('admin-dash');
     }
   
      return redirect('/');

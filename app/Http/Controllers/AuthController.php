@@ -19,6 +19,7 @@ class AuthController extends Controller
      */
     public function index(Request $request)
     {
+        //dd('ds');
         $this->validate($request,[
             'email'     =>  'required|email',
             'password'  =>  'required|alphaNum|min:4'
@@ -35,7 +36,7 @@ class AuthController extends Controller
             if($role == 'user'){
                 return redirect('dashboard/'.Auth::user()->name);
             }elseif($role == 'shopkeeper'){
-                echo "shopekeeper";
+                return redirect()->route('ShopDash');
             }else{
                 return redirect('admin-dash');
             }

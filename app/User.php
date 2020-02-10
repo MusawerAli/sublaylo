@@ -15,8 +15,11 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password','contact','remember_token'];
+    protected $fillable = ['name', 'email', 'password','contact','remember_token','city','state', 'country','address','role'];
 
+    public function GetShopkeepers(){
+        return $this->hasOne('App\BusinessDetail');
+    }
     // public function info(){
     //     return $this->hasOne('App\MODELNAME','id','user_id');
     // }

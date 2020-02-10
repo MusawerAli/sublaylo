@@ -9,37 +9,27 @@
         <h5 ><b class="w3-border-bottom"><i class="fa fa-dashboard"></i> ShopKeepers Detail </b> </h5>
         <button class="w3-btn w3-green w3-border w3-border-green w3-round-xlarge" id="add_data">+ Add ShopKeeper</button>
       </header>
-
+      <div class="w3-center" id="form_output"></div>
 <br>
-      
-      <table class="w3-table-all w3-hoverable">
+    
+      <table class="w3-table-all w3-hoverable" id="table">
+        
         <thead>
           <tr class="w3-light-grey">
-            <th>No</th>
+          
             <th>Name</th>
-            <th>Busin Name</th>
-            <th>CNIC#</th>
-            <th>Contact</th>
+            <th>Email</th>
+            <th>Contact#</th>
+            <th>BusinName</th>
+            <th>BusinType</th>
+            <th>Addr</th>
             <th>City</th>
-            <th>Address</th>
+            <th>RegDate</th>
+            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tr>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-        </tr>
-        <tr>
-          <td>Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-        </tr>
-        <tr>
-          <td>Adam</td>
-          <td>Johnson</td>
-          <td>67</td>
-        </tr>
+       
       </table>
   </div>
 
@@ -136,17 +126,78 @@
     </div>
 </div>
 
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>       
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
 
 <script type="text/javascript">
 
 $(document).ready(function(){
- $('#add_data').click(function(){
+
+  $('#table').DataTable({
+        "processing": true,
+        "serverSide": true,
+        responsive: true,
+    "scrollY": 500,
+    "scrollCollapse": true,
+    "jQueryUI": true,
+        "ajax": "{{route('ShopskeeperDetail')}}",
+        columns: [
+                  {
+                    data: 'name',
+                    name: 'name'
+                  },
+                  {
+                    data: 'email',
+                    name: 'email'
+                  },
+                  {
+                    data: 'contact',
+                    name: 'contact'
+                  },
+                  {
+                    data: 'BusinessName',
+                    name: 'BusinessName'
+                  },
+                  {
+                    data: 'BusinessType',
+                    name: 'BusinessType'
+                  },
+                  {
+                    data: 'BusinessAddress',
+                    name: 'BusinessAddress'
+                  },
+                  {
+                    data: 'city',
+                    name: 'city'
+                  },
+                  {
+                    data: 'created_at',
+                    name: 'created_at'
+                  }, 
+                  {
+                    data: 'status',
+                    name: 'status',
+                    orderable:false,
+                  },
+                 
+                 
+                  { 
+                    "data": "action", 
+                    orderable:false, 
+                    searchable: false
+                  }
+                  ]
+     });
+
+
+    $('#add_data').click(function(){
         $('#businModal').modal('show');
-        $('#busin_form')[0].reset();
+        $('#BusinessForm')[0].reset();
         $('#form_output').html('');
         $('#button_action').val('insert');
         $('#action').val('Add');
-    });
+});
 
           //Verify Email
     $('#email').blur(function(){
@@ -169,22 +220,24 @@ $(document).ready(function(){
                             success:function(result){
                                
                                 if(result==0){
-                                    $('#error_email').html('<span class="text-success">Success</span>');
+                                    $('#error_email').html('<span class="text-success fa fa-check"> Email Available</span>');
                                     $('#email').removeClass('w3-red');
                                     $('#email').addClass('w3-green');
                                     $('#action').attr('disabled',false);
                                 }
 
                                 else{
-                                    $('#error_email').html('<span class="w3-text-red w3-yellow">This Email already taken.</span>');
+                                    $('#error_email').html('<span class="w3-text-red w3-yellow fa fa-close"> This Email already taken.</span>');
                                     
                                     $('#action').attr('disabled',true);
                                 }
                             }
                         });
                 }
-            });
+  });
 
+
+            //Add Shopskeeper
 
     $('#BusinessForm').on('submit', function(event){
         event.preventDefault();
@@ -219,6 +272,27 @@ $(document).ready(function(){
             }
         })
     });
+
+
+    
+    $(document).on('click', '.status', function(){
+        var id = $(this).attr("id");
+        var value = $(this).attr("value");
+       var name = $(this).attr("secure");
+        $('#form_output').html('');
+        $.ajax({
+            url:"{{route('status')}}",
+            method:'get',
+            data:{id:id,value:value,name:name},
+            success:function(data)
+            {
+              $('#form_output').html("<span class='alert alert-success fa fa-check'>"+data+"</span>");
+              $('#table').DataTable().ajax.reload();
+
+            }
+        })
+    });
+
 });
 </script>
 

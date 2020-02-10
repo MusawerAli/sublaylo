@@ -13,7 +13,7 @@ data-slick='{
 	"dots": false
 }'>
 <div class="start-screen__slide">
-	<div class="start-screen__bg" style="background-image: url(img/home_img/img_7.jpg);background-position: top 30% right 30%;"></div>
+	<div class="start-screen__bg" style="background-image: url({{asset('assets/img/home_img/img_7.jpg')}});background-position: top 30% right 30%;"></div>
 
 	<div class="start-screen__content__item align-items-center">
 		<div class="container">
@@ -32,7 +32,7 @@ data-slick='{
 </div>
 
 <div class="start-screen__slide">
-	<div class="start-screen__bg" style="background-image: url(img/home_img/img_8.jpg);background-position: top 30% left 70%;"></div>
+	<div class="start-screen__bg" style="background-image: url({{asset('assets/img/home_img/img_8.jpg')}});background-position: top 30% left 70%;"></div>
 
 	<div class="start-screen__content__item align-items-center">
 		<div class="container">
@@ -55,7 +55,7 @@ data-slick='{
 </div>
 
 <div class="start-screen__slide">
-	<div class="start-screen__bg" style="background-image: url(img/home_img/img_9.jpg);"></div>
+	<div class="start-screen__bg" style="background-image: url({{asset('assets/img/home_img/img_9.jpg')}});"></div>
 
 	<div class="start-screen__content__item align-items-center">
 		<div class="container">

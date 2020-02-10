@@ -85,6 +85,17 @@
 											</ul>
 										</li>
 
+										<li>
+											<a href="
+											@if (Auth::user()->role=="admin")
+												{{route('admin-dash')}}
+											@elseif(Auth::user()->role=="shopkeeper")
+												{{'/shopkeeper-dash'}}
+											@else
+											{{route('dashboard')}}
+											@endif
+											">Dashbaord</a>
+										</li>
 										@endif
 
 										

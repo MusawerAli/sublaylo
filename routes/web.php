@@ -22,26 +22,32 @@ Route::get('/find-city/{city?}',function($city){
 Route::get('accounts',function(){
     return view('accounts');
 });
+Auth::routes();
+
+Route::get('profile','ProfileController@index')->name('profile');
+Route::group(['middleware'=>['shopper','auth']],function(){
+    Route::get('shopper','ProfileController@index');
+});
+
 
 
 
 // Route of Website
 
-Route::post('/Auth/login','AuthController@index')->name('login');
-Route::get('/Auth/logout','AuthController@logout')->name('logout');
-Route::get('/dashboard/{UserName}',function($UserName){
+ Route::get('/Auth/login','AuthController@index')->name('login');
+ Route::post('/Auth/login','AuthController@index')->name('login');
+ Route::get('/Auth/logout','AuthController@logout')->name('logout');
+Route::get('/dashboard',function(){
     return view('user.user-dashboard');
-})->name('dashboard/{UserName}');
+})->name('dashboard');
 
 
 Route::get('/shopkeeper-dash',function(){
     
     return view('shopkeeper.shop-dash');
-})->name('/s_dashboard');
+});
 
-Route::get('/admin-dash',function(){
-    return view('admin.admin-dash');
-})->middleware('CheckRole');
+
 
 //Ajax Call Route
 
@@ -61,5 +67,18 @@ Route::get('/home/{name?}',function(){
 Route::get('/add-shops',function(){
     return view('admin.pages.add-shops');
 })->name('AddShops');
-
+Route::get('/admin-dash',function(){
+    return view('admin.admin-dash');
+})->name('admin-dash');
 Route::post('/add-business','ShopsController@add_business')->name('AddBusiness');
+
+Route::get('/ShopskeeperDetail','ShopsController@shops_detail')->name('ShopskeeperDetail');
+Route::get('/test','ShopsController@shops_detail')->name('test');
+Route::get('/statuschange','ShopsController@ChangeStatus')->name('status');
+
+
+
+        //**************ShopKeeper site Route *************//
+
+Route::get('/shopdash','UserShopsController@index')->name('ShopDash');
+Route::get('/AddPrd','UserShopsController@AddPrd')->name('AddPrd');
