@@ -111,11 +111,17 @@
       <br>
 
       <div class="w3-card-4">
-
+        @if($message = Session::get('pwd_success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>    
+            <strong>{{ $message }}</strong>
+        </div>
+        @endif
+        <form class="form-horizontal" method="POST" action="{{route('update.profile')}}" name="form_data" id="form_data">
         <header class="w3-container w3-light-grey">
           <h3>Password</h3>
         </header>
-        
+        @csrf
         <div class="w3-container">
           <div class="form-group">
             <label for="name">Old Password:</label>
@@ -124,11 +130,12 @@
           <div class="form-group">
             <label for="name">New Password:</label>
             <input type="password" name="new_password" id="new_password" class="form-control">
+            <input type="hidden" readonly name="req_type" value="pwd">
           </div>
         
           <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10 w3-center">
-                <button type="submit" id="submit" class="submit" class="w3-btn w3-black">Update</button>
+                <button type="submit" id="submit"  class="w3-btn w3-black submit">Update Password</button>
               </div>
             </div>
         </form>

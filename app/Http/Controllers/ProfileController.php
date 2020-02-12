@@ -28,7 +28,7 @@ class ProfileController extends Controller
 
     public function UpdateProfile(Request $request){
 
-        $data = $request->only(['name','email','contact','address','_token','password','image']);
+        $data = $request->only(['name','email','contact','address','_token','old_password','new_password','image']);
      $user_id = Auth::user()->id;
      $image_name = Auth::user()->image;
      if($request->req_type =="profile"){
@@ -37,7 +37,8 @@ class ProfileController extends Controller
             'name'  =>  'required',
             'email' =>  'required',
             'contact'   =>  'required',
-            'address'   =>  'required'
+            'address'   =>  'required',
+           
            ]);
       
             $image = $request->file('image');
@@ -67,6 +68,19 @@ class ProfileController extends Controller
                 $user->save();
                 return back()->with('success', 'Profile Updated Successfully');
              }
+     }
+     if($request->req_type=="pwd"){
+        $this->validate($request, [
+            
+            'old_password'   =>  'required',
+            'new_password'   =>  'required|same:old_password',
+           
+           ]);
+           
+           $user = User::find($user_id);
+           $user->password = Hash::make($data['new_password']);
+           $user->save();
+           return back()->with('pwd_success', 'Password Changes Successfully');
      }
     }
 }
