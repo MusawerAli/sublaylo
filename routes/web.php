@@ -30,7 +30,7 @@ Route::group(['middleware'=>['shopper','auth']],function(){
 });
 
 
-
+Route::post('UpdateProfile','ProfileController@UpdateProfile')->name('update.profile');
 
 // Route of Website
 

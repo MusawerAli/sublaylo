@@ -3,6 +3,8 @@
 <head>
     @include('header.head')
     @stack('bootstrap')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.css">
 </head>
 <body class="w3-theme-l5">
     <!-- Page Container -->
@@ -16,7 +18,9 @@
         <div class="w3-card w3-round w3-white">
           <div class="w3-container">
           <h4 class="w3-center">{{$user->name}}</h4>
-           <p class="w3-center"><img src="{{asset('assets/img/user_images/'.$user->image)}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+           <p class="w3-center"><img src="{{asset('assets/img/user_images/'.$user->image)}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+           
+          </p>
            <span class="w3-text-theme">Musawer</span>
            <hr>
            <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{$user->contact}}</p>
@@ -39,8 +43,32 @@
       <div class="w3-col m7">
         <div class=" w3-card-4" >
         <div class="w3-padding-32" ng>
-					<form class="form-horizontal" name="form_data" id="form_data">
-			
+          @if($message = Session::get('success'))
+          <div class="alert alert-success alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>    
+              <strong>{{ $message }}</strong>
+          </div>
+          @endif
+          @if(count($errors) > 0)
+    <div class="alert alert-danger">
+           <ul>
+           @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+           @endforeach
+           </ul>
+       </div>
+   @endif
+					<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('update.profile')}}" name="form_data" id="form_data">
+      @csrf
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="w3-center"><img  id="blah" src="{{asset('assets/img/user_images/'.$user->image)}}" class="w3-circle" style="height:200px;width:200px" alt="Avatar">
+              </div>
+              <div class="col-sm-6">
+                <input type="file" 
+                onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" name="image" value="{{$user->image}}">
+              </div>
+            </div>
 					
 						<div class="form-group">
 							<label class="control-label col-sm-4"  for="name">Name:</label>
@@ -52,7 +80,8 @@
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="email">Email:</label>
 							<div class="col-sm-8">
-								<input type="email" class="form-control" name="email" value="{{$user->email}}"  id="email">
+                <input type="email" class="form-control" name="email" value="{{$user->email}}"  id="email">
+                <input type="hidden" readonly name="req_type" value="profile">
 							</div>
 						</div>
 						<div class="form-group">
@@ -160,5 +189,10 @@
   <!-- End Page Container -->
   </div>
   <br>
+
+  <script>
+ 
+
+
 </body>
 </html>

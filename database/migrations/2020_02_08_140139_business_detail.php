@@ -19,9 +19,11 @@ class BusinessDetail extends Migration
             $table->bigInteger('admin_id');
             $table->string('BusinessName');
             $table->char('BusinessContact', 17);
-            $table->enum('BusinessType', ['grocery', 'krayana','other'])->default('other');
+            $table->enum('BusinessType', ['grocery', 'krayana','makeup','vegetables','food','fruits','null'])->default('null');
             $table->string('BusinessAddress', 244);
             $table->json('location')->nullable();
+            $table->time('opening')->nullable();
+            $table->time('closing')->nullable();
             $table->timestamps();
         });
         
