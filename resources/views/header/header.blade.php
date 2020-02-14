@@ -75,7 +75,7 @@
 
 										@else
 										<li class="active has-submenu">
-											<img  src="{{asset('assets/img/')}}/{{Auth::user()->image}}" height="30px" width="30px" alt="profile">
+											<img class="w3-circle" src="{{asset('assets/img/user_images')}}/{{Auth::user()->image}}" height="30px" width="30px" alt="profile">
 											Profile
 											<ul class="submenu">
 												<li class="fa fa-first-order"> <a href="index.html">Orders</a></li>

@@ -20,8 +20,9 @@ class BusinessDetail extends Migration
             $table->string('BusinessName');
             $table->char('BusinessContact', 17);
             $table->enum('BusinessType', ['grocery', 'krayana','makeup','vegetables','food','fruits','null'])->default('null');
+            $table->enum('reward', ['diamond', 'golden','silver','null'])->default('null');
             $table->string('BusinessAddress', 244);
-            $table->json('location')->nullable();
+            $table->string('location')->nullable();
             $table->time('opening')->nullable();
             $table->time('closing')->nullable();
             $table->timestamps();
@@ -36,6 +37,7 @@ class BusinessDetail extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('BusinessDetails');
+
     }
 }

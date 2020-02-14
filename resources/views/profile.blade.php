@@ -21,7 +21,7 @@
            <p class="w3-center"><img src="{{asset('assets/img/user_images/'.$user->image)}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
            
           </p>
-           <span class="w3-text-theme">Musawer</span>
+           <span class="w3-text-theme">******</span>
            <hr>
            <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{$user->contact}}</p>
            <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{$user->address}}</p>
