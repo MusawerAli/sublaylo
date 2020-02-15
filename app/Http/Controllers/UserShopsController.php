@@ -26,6 +26,7 @@ class UserShopsController extends Controller
         public function InsertPrd(Request $request){
             
             $data = $request->only(['image','ItemName','company_name','price','type','qty','unit','shipping']);
+            
            if(!isset($data['shipping'])){$data['shipping']='charges';}
             
             $user_id = Auth::user()->id;
@@ -71,21 +72,14 @@ class UserShopsController extends Controller
                         $ProductPost->image  = $image_name;
                         
                         if($ProductPost->save()){
-                            echo "F**K";
+                             return response()->json([
+                    'success'   => 'Product added Successfuly',
+                    // 'uploaded_image' => '<img src="/images/'.$new_name.'" class="img-thumbnail" width="300" />',
+                    'class_name_s'  => 'alert-success w3-text-green'
+                    ]);
                         }
 
                        }
-
-                    // $image = $request->file('select_file');
-                    // $new_name = rand() . '.' . $image->getClientOriginalExtension();
-                    // $image->move(public_path('images'), $new_name);
-
-                    // return response()->json([
-                    // 'message'   => 'Image Upload Successfully',
-                    // 'uploaded_image' => '<img src="/images/'.$new_name.'" class="img-thumbnail" width="300" />',
-                    // 'class_name'  => 'alert-success'
-                    // ]);
-               
                 }
                 else
                     {

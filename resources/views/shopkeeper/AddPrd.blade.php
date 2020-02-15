@@ -2,6 +2,7 @@
 @section('AddPrd')
 <div class="w3-container ">
   <span id="add_data" class="w3-btn w3-green w3-round-xlarge">+ Add Product</span>
+  
 </div>
 <!-- The Modal -->
 <div class="modal fade" id="myModal">
@@ -12,11 +13,15 @@
       <div class="modal-header">
         <h4 class="modal-title" id="modal-title">Add Products</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
+      
       </div>
+
+
+      
       
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="alert" id="message" style="display: none"></div>
+        <span class="alert" id="message" style="display: none"></span>
         <form method="post" action="{{route('insert.prd')}}" id="insert_prd" enctype="multipart/form-data">
           @csrf
           <div class="row">
@@ -151,7 +156,11 @@
                 $('#message').addClass(data.class_name);
                // $('#uploaded_image').html(data.uploaded_image);
                 }else{
-                  alert('sucesss');
+                  $('#insert_prd')[0].reset();
+                  $('#message').css('display', 'block');
+                  $('#message').html(data.success);
+                  $('#message').addClass(data.class_name_s);
+                 
                 }
               
                 

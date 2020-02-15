@@ -18,12 +18,12 @@ class Posts extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('item_name', 20);
             $table->string('company', 30);
-            $table->float('price', 6, 2);
-            $table->float('discount', 3, 1)->nullable();
+            $table->float('price',11,2);
+            $table->float('discount', 3)->nullable();
             $table->enum('unit', ['litter', 'kg','piece',]);
-           $table->enum('type', ['grocery', 'krayana','makeup','vegetables','food','fruits','null'])->default('null');
+           $table->enum('type', ['grocery', 'kryana','makeup','vegetables','food','fruits','null'])->default('null');
          
-           $table->float('total', 6, 2);
+           $table->float('total',11,2);
            $table->enum('delivery', ['on','charges'])->default('charges');
            $table->string('heading', 20)->nullable();
            $table->string('image', 50);
