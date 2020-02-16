@@ -83,3 +83,5 @@ Route::get('/statuschange','ShopsController@ChangeStatus')->name('status');
 Route::get('/shopdash','UserShopsController@index')->name('ShopDash');
 Route::get('/AddPrd','UserShopsController@AddPrd')->name('AddPrd');
 Route::post('/ins-product','UserShopsController@InsertPrd')->name('insert.prd');
+Route::get('/product-detail-table','UserShopsController@PrdDetail')->name('PrdDetail');
+Route::post('/product-UpdateFields','UserShopsController@UpdateFields')->name('update.UpdateFields');

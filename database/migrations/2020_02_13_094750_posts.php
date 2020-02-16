@@ -19,7 +19,7 @@ class Posts extends Migration
             $table->string('item_name', 20);
             $table->string('company', 30);
             $table->float('price',11,2);
-            $table->float('discount', 3)->nullable();
+            $table->float('discount',4,2)->default(0);
             $table->enum('unit', ['litter', 'kg','piece',]);
            $table->enum('type', ['grocery', 'kryana','makeup','vegetables','food','fruits','null'])->default('null');
          
