@@ -1,12 +1,20 @@
 @push('user-footer')
-	
+
 			<!-- start footer -->
 			<footer id="footer" class="footer footer--style-3">
 				<div class="container">
 					<div class="row">
+					<div class >
+
+
+					</div>
+
+
+
+
 						<div class="col-12 col-md-7">
 							<div class="row">
-								<div class="col-12 col-sm-4 col-md-4 col-lg-3">
+							<div class="col-12 col-sm-4 col-md-4 col-lg-3">
 									<div class="footer__item">
 										<a class="site-logo" href="index.html">
 											<img class="img-fluid  lazy" src="img/blank.gif" data-src="img/site_logo.png" alt="demo" />
@@ -22,7 +30,7 @@
 													<ul>
 														<li class="active"><a href="index.html">Home</a></li>
 														<li><a href="#">About</a></li>
-														<li><a href="#">Pages</a></li>
+
 														<li><a href="#">Gallery</a></li>
 														<li><a href="#">Blog</a></li>
 														<li><a href="#">Contacts</a></li>
@@ -64,7 +72,7 @@
 													<h5 class="__title">Phone</h5>
 
 													<p>
-														+1 (234) 56789,  +1 987 654 3210 
+														+1 (234) 56789,  +1 987 654 3210
 													</p>
 												</div>
 											</div>
@@ -110,5 +118,5 @@
 
 
 @push('admin-footer')
-	
+
 @endpush
