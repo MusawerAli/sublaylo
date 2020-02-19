@@ -3,6 +3,29 @@
 <div class="w3-container ">
   <span id="add_data" class="w3-btn w3-green w3-round-xlarge">+ Add Product</span>
   
+  <br>
+  <br>
+
+  <table class="w3-table-all w3-hoverable" id="user_table">
+        @csrf
+    <thead>
+      <tr class="w3-light-grey">
+      
+        <th>No#</th>
+        <th>Image</th>
+        <th>ItemName</th>
+        <th>Company</th>
+        <th>Type</th>
+        <th>Discount%</th>
+        <th>unit</th>
+        <th>qty</th>
+        <th>Price</th>
+        <th>Shipping</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+   
+  </table>
 </div>
 <!-- The Modal -->
 <div class="modal fade" id="myModal">
@@ -15,7 +38,6 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       
       </div>
-
 
       
       
@@ -126,15 +148,127 @@
       </div>
     </div>
   </div>
+
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>       
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+
+  
+  
   <script type="text/javascript">
   $(document).ready(function(){
-  $('#add_data').click(function(){
+    $('#add_data').click(function(){
   $('#myModal').modal('show');
   $('#PrdForm')[0].reset();
   $('#form_output').html('');
   $('.modal-title').text('Add Products');
   
   });
+    $('#user_table').DataTable({
+  processing: true,
+  serverSide: true,
+  ajax:{
+   url: "{{ route('PrdDetail') }}",
+  },
+  columns:[
+    {
+    data: 'item_name',
+    name: 'item_name'
+   },
+   {
+    data: 'image',
+    name: 'image',
+    render: function(data, type, full, meta){
+     return "<img src={{ URL::to('/') }}/assets/img/product-img/" + data + " width='50' height='50' class='img-thumbnail' />";
+    },
+    orderable: false
+   },
+   {
+    data: 'item_name',
+    name: 'item_name'
+   },
+   {
+    data: 'company',
+    name: 'company'
+   },
+   {
+    data: 'type',
+    name: 'type',
+   },
+   {
+    data: 'discount',
+    name: 'discount',
+   },
+   {
+    data: 'unit',
+    name: 'unit',
+   },
+   {
+    data: 'qty',
+    name: 'qty',
+   },
+   {
+    data: 'total',
+    name: 'total',
+   },
+   {
+    data: 'delivery',
+    name: 'delivery',
+   },
+   {
+    data: 'action',
+    name: 'action',
+   }
+  ]
+ });
+
+
+
+ $('body').on('click', '[data-edit]', function(){
+  
+  var $el = $(this);
+              
+  var $input = $('<input />').val( $el.text() );
+  $el.replaceWith( $input );
+  
+  var save = function(){
+    var $p = $('<td data-edit ></td>').text( $input.val() );
+
+    $input.replaceWith( $p );
+    var value=parseFloat($input.val());
+    var id= $el.attr('id') ;
+    var prd_id= $el.attr('prd_id') ;
+    var field_name= $el.attr('class') ;
+    var _token = $("input[name=_token]").val();
+    var action = "TblData";
+alert(value+prd_id+field_name+_token);
+$('#user_table').DataTable().ajax.reload();
+    $.ajax({
+   		type: "POST",
+           url: "{{route('update.UpdateFields')}}",
+			  data:{value:value,prd_id:prd_id,field_name:field_name,_token:_token,action:action},
+			 
+			  success: function(data){
+			     // $("#res").text(data);
+                 
+              alert(data + '  Update Successful');
+                                   // window.location = "";
+			  }	  
+   });
+  };
+ 
+  /**
+    We're defining the callback with `one`, because we know that
+    the element will be gone just after that, and we don't want 
+    any callbacks leftovers take memory. 
+    Next time `p` turns into `input` this single callback 
+    will be applied again.
+  */
+  $input.one('blur', save).focus();
+
+  
+});
+
 
 
   //add items with ajax
@@ -168,5 +302,6 @@
               })
             });
   });
+  
   </script>
   @endsection
