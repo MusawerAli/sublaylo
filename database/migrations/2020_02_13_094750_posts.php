@@ -31,6 +31,7 @@ class Posts extends Migration
             $table->time('opening')->nullable();
             $table->time('closing')->nullable();
             $table->string('area', 50)->nullable();
+            $table->string('city', 40);
             $table->timestamps();
         });
     }

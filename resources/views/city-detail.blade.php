@@ -3,25 +3,7 @@
     
 <!-- start section -->
 <section class="section">
-    <div class="decor-el decor-el--1" data-jarallax-element="-70" data-speed="0.2">
-        <img class="lazy" width="286" height="280" src="img/blank.gif" data-src="img/decor-el_1.jpg" alt="demo"/>
-    </div>
-
-    <div class="decor-el decor-el--2" data-jarallax-element="-70" data-speed="0.2">
-        <img class="lazy" width="99" height="88" src="img/blank.gif" data-src="img/decor-el_2.jpg" alt="demo"/>
-    </div>
-
-    <div class="decor-el decor-el--3" data-jarallax-element="-70" data-speed="0.2">
-        <img class="lazy" width="115" height="117" src="img/blank.gif" data-src="img/decor-el_3.jpg" alt="demo"/>
-    </div>
-
-    <div class="decor-el decor-el--4" data-jarallax-element="-70" data-speed="0.2">
-        <img class="lazy" width="84" height="76" src="img/blank.gif" data-src="img/decor-el_4.jpg" alt="demo"/>
-    </div>
-
-    <div class="decor-el decor-el--5" data-jarallax-element="-70" data-speed="0.2">
-        <img class="lazy" width="248" height="309" src="img/blank.gif" data-src="img/decor-el_5.jpg" alt="demo"/>
-    </div>
+   
 
     <div class="container">
 
@@ -321,13 +303,14 @@
   </div>
                     <!-- start goods -->
                     <div class="goods goods--style-1">
+
                         <div class="__inner">
-                            <div class="row">
+                            {{-- <div class="row">
                                 <!-- start item -->
                                 <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="__item">
                                         <figure class="__image">
-                                            <img class="lazy" width="188" src="img/blank.gif" data-src="img/goods_img/1.jpg" alt="demo" />
+                                            <img class="" width="188" src="{{asset('assets/img/product-img/96_Ghee_1581718693.png')}}" data-src="img/goods_img/1.jpg" alt="demo" />
                                         </figure>
 
                                         <div class="__content">
@@ -400,7 +383,7 @@
                                 <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="__item">
                                         <figure class="__image">
-                                            <img class="lazy" width="190" src="img/blank.gif" data-src="img/goods_img/4.jpg" alt="demo" />
+                                            <img class="lazy" width="190" src="" data-src="img/goods_img/4.jpg" alt="demo" />
                                         </figure>
 
                                         <div class="__content">
@@ -610,7 +593,149 @@
                                     </div>
                                 </div>
                                 <!-- end item -->
-                            </div>
+                            </div> --}}
+                              <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+      @csrf
+    <div class="w3-col s6 l3 m4">
+      <div class="w3-container w3-card">
+        <div class="w3-display-container">
+          <img src="https://images.squarespace-cdn.com/content/588fe72c59cc68806c8671fc/1489800609488-FIM4W6GU5U165EFVZBQL/Ghee+Jar+Sample.png?format=1500w&content-type=image%2Fpng" style="width:100%">
+          <span class="w3-tag w3-display-topleft w3-pink">Discount 20%</span>
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Order Now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+       
+       <div> <b class="w3-text-black">Ghee (ASIA)</b> </div>
+        <span class="fa fa-location-arrow w3-text-blue"> Bahawalpur</span>
+        <span class="fa fa-motorcycle  w3-text-green"> Shipping Free</span>
+        <hr>
+        <span class="fa fa-university w3-text-indigo">Saleem Karyana </span>
+        <p><b class="w3-text-red">(pkr): 230 1kg</b></p>
+      </div>
+    </div>
+    <div class="w3-col s6 l3 m4">
+        <div class="w3-container w3-card">
+          <div class="w3-display-container">
+            <img src="https://pngimage.net/wp-content/uploads/2018/06/wheat-flour-png-1.png" style="width:100%">
+            {{-- <span class="w3-tag w3-display-topleft">Sale</span> --}}
+            <div class="w3-display-middle w3-display-hover">
+              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+            </div>
+          </div>
+          <div> <b class="w3-text-black">Floor (Special)</b> </div>
+          <span class="fa fa-location-arrow w3-text-blue"> Bahawalpur</span>
+          <span class="fa fa-motorcycle  w3-text-green"> Shipping Free</span>
+          <hr>
+          <span class="fa fa-university w3-text-indigo">Ahmad Karyana </span>
+          <p><b class="w3-text-red">(pkr): 399 10kg</b></p>
+        </div>
+      </div>
+  
+    <div class="w3-col s6 l3 m4">
+      <div class="w3-container w3-card">
+        <div class="w3-display-container">
+          <img src="https://lifestock.pk/pub/media/catalog/product/cache/c5b0e6136a6dd7f7d91d8b889ed40f35/m/a/maize.png" style="width:100%">
+          {{-- <span class="w3-tag w3-display-topleft">Sale</span> --}}
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <div> <b class="w3-text-black">Corn Floor (Nasir)</b> </div>
+        <span class="fa fa-location-arrow w3-text-blue"> Bahawalpur</span>
+        <span class="fa fa-motorcycle  w3-text-green"> Shipping Free</span>
+        <hr>
+        <span class="fa fa-university w3-text-indigo">Ahmad Karyana </span>
+        <p><b class="w3-text-red">(pkr): 160 10kg</b></p>
+      </div>
+    </div>
+    <div class="w3-col s6 l3 m4">
+      <div class="w3-container w3-card">
+        <div class="w3-display-container">
+          <img src="https://pluspng.com/img-png/sack-of-rice-png-a-2000.jpg" style="width:100%">
+          <span class="w3-tag w3-display-topleft">Sale</span>
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <div>
+            <b class="w3-text-black">Kachi basmati (kainat)</b>
+        </div>
+        <span class="fa fa-location-arrow w3-text-blue"> Bahawalpur</span>
+        <span class="fa fa-motorcycle  w3-text-green"> Shipping Free</span>
+        <hr>
+        <span class="fa fa-university w3-text-indigo">Ahmad Karyana </span>
+        <p><b class="w3-text-red">(pkr): 150 1kg</b></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Second Photo Grid-->
+<div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-col s6 l3 m4">
+      <div class="w3-container w3-card">
+        <div class="w3-display-container">
+          <img src="https://images.squarespace-cdn.com/content/588fe72c59cc68806c8671fc/1489800609488-FIM4W6GU5U165EFVZBQL/Ghee+Jar+Sample.png?format=1500w&content-type=image%2Fpng" style="width:100%">
+          <span class="w3-tag w3-display-topleft">Sale</span>
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
+      </div>
+    </div>
+    <div class="w3-col s6 l3 m4">
+     <div class="w3-container w3-card">
+        <div class="w3-display-container">
+          <img src="https://pngimage.net/wp-content/uploads/2018/06/wheat-flour-png-1.png" style="width:100%">
+          <span class="w3-tag w3-display-topleft">Sale</span>
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
+      </div>
+    </div>
+    <div class="w3-col s6 l3 m4">
+      <div class="w3-container w3-card">
+        <div class="w3-display-container">
+          <img src="https://lifestock.pk/pub/media/catalog/product/cache/c5b0e6136a6dd7f7d91d8b889ed40f35/m/a/maize.png" style="width:100%">
+          <span class="w3-tag w3-display-topleft">Sale</span>
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
+      </div>
+    </div>
+    <div class="w3-col s6 l3 m4">
+      <div class="w3-container w3-card">
+        <div class="w3-display-container">
+          <img src="https://pluspng.com/img-png/sack-of-rice-png-a-2000.jpg" style="width:100%">
+          <span class="w3-tag w3-display-topleft">Sale</span>
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+
+                            
                         </div>
                     </div>
                     <!-- end goods -->
@@ -634,6 +759,43 @@
         <!-- end goods catalog -->
 
     </div>
+ 
+<script>
+ $(document).ready(function(){
+    var _token = $('input[name="_token"]').val();
+      var city = {!! json_encode($city)!!};
+
+ 
+
+    
+    fetch_data(city);
+
+    function fetch_data(city,from_date = '', to_date = '')
+        {
+        $.ajax({
+        url:"{{ route('LoadData') }}",
+        method:"POST",
+        data:{from_date:from_date, to_date:to_date, _token:_token,city:city},
+        dataType:"json",
+        success:function(data)
+        {
+            console.log(data);
+            // var output = '';
+            // $('#total_records').text(data.length);
+            // for(var count = 0; count < data.length; count++)
+            // {
+            // output += '<tr>';
+            // output += '<td>' + data[count].post_title + '</td>';
+            // output += '<td>' + data[count].post_description + '</td>';
+            // output += '<td>' + data[count].date + '</td></tr>';
+            // }
+            // $('tbody').html(output);
+        }
+        })
+        }
+ });
+</script>
+    
 </section>
 <!-- end section -->
 
